@@ -1,0 +1,36 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Contacts
+  </div>
+  <div class="panel-body">
+    <div class="form-group form-inline">
+      <input class="form-control" [(ngModel)]="mc" placeholder="Mot clé"/>
+      <button class="btn btn-primary" (click)="chercher()">Chercher</button>
+    </div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Email</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let c of pageContact?.content">
+        <td>{{c.id}}</td>
+        <td>{{c.nom}}</td>
+        <td>{{c.prenom}}</td>
+        <td>{{c.email}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="panel-footer">
+    <ul class="pagination">
+      <li [ngClass]="{'active':currentPage===(i)}" *ngFor="let p of pages; let i=index" class="clickable"><a (click)="goto(i)" >{{i+1}}</a></li>
+    </ul>
+  </div>
+
+</div>
